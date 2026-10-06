@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile cá nhân</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8eef3;
+      color: #2b3a42;
+    }
+    /* Bước 2: Card — width cố định, căn giữa bằng margin auto */
+    .card {
+      width: 350px;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin: 50px auto;
+      padding: 30px 25px;
+      border: 2px solid #2f6f73;
+      border-radius: 16px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+    /* Bước 3: Avatar tròn */
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #2f6f73;
+      object-fit: cover;
+      background-color: #cfe3e4;
+    }
+    /* Bước 4: Tên và nghề nghiệp */
+    .name {
+      margin: 15px 0 5px;
+      font-size: 28px;
+    }
+    .job {
+      margin: 0 0 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #2f6f73;
+    }
+    .bio {
+      margin: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    /* Bước 5: Danh sách kỹ năng */
+    .skills {
+      list-style: none;
+      margin: 0 0 25px;
+      padding: 0;
+    }
+    .skill {
+      display: inline-block;
+      margin: 4px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background-color: #d9ecec;
+      font-size: 14px;
+    }
+    /* Bước 6: Nút liên hệ + hiệu ứng hover */
+    .btn {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 8px;
+      background-color: #2f6f73;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #e07a3f;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bước 1: Khung HTML -->
+  <div class="card">
+    <img class="avatar" src="img/avatar.jpg" alt="Ảnh đại diện">
+    <h1 class="name">Trần Gia Bảo</h1>
+    <p class="job">Lập trình viên</p>
+    <p class="bio">
+      Xin chào! Mình là sinh viên yêu thích thiết kế giao diện web.
+      Mình đang học HTML, CSS và muốn xây dựng những trang web đẹp, dễ dùng.
+    </p>
+    <ul class="skills">
+      <li class="skill">HTML</li>
+      <li class="skill">CSS</li>
+      <li class="skill">JavaScript</li>
+    </ul>
+    <a class="btn" href="mailto:gia.bao@example.com">Liên hệ</a>
+  </div>
+</body>
+</html>
