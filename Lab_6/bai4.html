@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Chương trình máy tính tình yêu </h2>
+    <label for="ten1">Tên của bạn: </label>
+    <input type="text" id="ten1">
+    <br></br>
+    <label for="ten2">Tên người ấy: </label>
+    <input type="text" id="ten2">
+    <br></br>
+    <button onclick="Tinhtinhyeu()">Tính</button>
+    <p id="ketqua"></p>
+
+    <script>
+        function Tinhtinhyeu() {
+            let ten1 = document.getElementById("ten1").value;
+            let ten2 = document.getElementById("ten2").value;
+            let tyle = Math.floor(Math.random() * 100) + 1;
+            let loinhan;
+            if (tyle >= 80) {
+                loinhan = "Trời sinh một cặp!";
+            } else if (tyle >= 50) {
+                loinhan = "Khá hợp nhau!";
+            } else {
+                loinhan = "Cần cố gắng thêm!";
+            }
+            document.getElementById("ketqua").innerHTML = ten1 + " và " + ten2 + " hợp nhau " + tyle + "% - " + loinhan;
+        }
+    </script>
+</body>
+</html>

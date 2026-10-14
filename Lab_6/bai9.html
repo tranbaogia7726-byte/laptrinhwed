@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Quay thưởng may mắn </h2>
+    <button onclick="Quaythuong()">Quay thưởng</button>
+    <p id="ketqua"></p>
+
+    <script>
+        function Quaythuong() {
+            let phanqua = ["Một cuốn sách", "Voucher cà phê", "Tai nghe", "Gấu bông", "Chúc bạn may mắn lần sau"];
+            let qua = phanqua[Math.floor(Math.random() * phanqua.length)];
+            document.getElementById("ketqua").innerHTML = "Bạn nhận được: " + qua;
+        }
+    </script>
+</body>
+</html>

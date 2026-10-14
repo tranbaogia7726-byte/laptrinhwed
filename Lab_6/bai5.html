@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Chương trình đoán số may mắn </h2>
+    <label for="so">Nhập số từ 1 đến 10: </label>
+    <input type="number" id="so">
+    <br></br>
+    <button onclick="Doanso()">Đoán</button>
+    <p id="ketqua"></p>
+
+    <script>
+        function Doanso() {
+            let so = Number(document.getElementById("so").value);
+            let maychon = Math.floor(Math.random() * 10) + 1;
+            let kq;
+            if (so == maychon) {
+                kq = "Máy chọn " + maychon + ". Bạn đã thắng!";
+            } else {
+                kq = "Máy chọn " + maychon + ". Chưa may mắn!";
+            }
+            document.getElementById("ketqua").innerHTML = kq;
+        }
+    </script>
+</body>
+</html>

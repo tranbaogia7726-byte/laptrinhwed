@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 14 - Tính chỉ số BMI</title>
+</head>
+<body>
+    <h2>BÀI 14: TÍNH CHỈ SỐ BMI</h2>
+
+    <label>Nhập chiều cao (m): </label>
+    <input type="number" id="chieucao" step="0.01">
+    <br><br>
+
+    <label>Nhập cân nặng (kg): </label>
+    <input type="number" id="cannang" step="0.1">
+    <br><br>
+
+    <button onclick="tinhBMI()">Tính BMI</button>
+
+    <h3 id="ketqua"></h3>
+
+    <script>
+        function tinhBMI() {
+            // Lấy dữ liệu từ ô nhập
+            let cao = parseFloat(document.getElementById("chieucao").value);
+            let nang = parseFloat(document.getElementById("cannang").value);
+
+            // Kiểm tra dữ liệu hợp lệ
+            if (isNaN(cao) || isNaN(nang) || cao <= 0 || nang <= 0) {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập chiều cao và cân nặng hợp lệ!";
+                return;
+            }
+            // Tính chỉ số BMI
+            let bmi = nang / (cao * cao);
+            let ketluan = "";
+            if (bmi < 18.5) {
+                ketluan = "Gầy";
+            } else if (bmi < 25) {
+                ketluan = "Bình thường";
+            } else if (bmi < 30) {
+                ketluan = "Thừa cân";
+            } else {
+                ketluan = "Béo phì";
+            }
+            document.getElementById("ketqua").innerHTML =
+                "Chỉ số BMI: " + bmi.toFixed(2) +
+                "<br>Kết luận: " + ketluan;
+        }
+    </script>
+</body>
+</html>

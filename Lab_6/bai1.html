@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 1. Kiểm tra số chẵn – số lẻ</title>
+</head>
+<body>
+<main>
+<h1>Bài 1. Kiểm tra số chẵn – số lẻ</h1>
+<input id="so" type="number" placeholder="Nhập số nguyên">
+<button onclick="kiemTra()">Kiểm tra</button>
+<div id="kq"></div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const show = text => $("kq").textContent = text;
+const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const pick = arr => arr[rand(0, arr.length - 1)];
+
+function kiemTra() {
+  const n = Number($("so").value);
+  if ($("so").value === "" || !Number.isInteger(n)) return show("Hãy nhập một số nguyên.");
+  show(n % 2 === 0 ? n + " là số chẵn" : n + " là số lẻ");
+}
+</script>
+</body>
+</html>
