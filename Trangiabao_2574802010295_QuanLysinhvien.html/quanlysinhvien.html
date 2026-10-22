@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Bài tập: Quản Lý Sinh Viên</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 24px;
+    color: #222;
+  }
+  h1 { text-align: center; color: #2c3e50; }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .form-nhap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+  #btnThem { background: #2ecc71; color: #fff; }
+  #btnThem:hover { background: #27ae60; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 14px;
+  }
+  th { background: #34495e; color: #fff; }
+  tr:hover { background: #f9f9f9; }
+  .btn-sua { background: #3498db; color: #fff; margin-right: 4px; }
+  .btn-sua:hover { background: #2980b9; }
+  .btn-xoa { background: #e74c3c; color: #fff; }
+  .btn-xoa:hover { background: #c0392b; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Bài Tập: Quản Lý Sinh Viên</h1>
+
+  <!-- Ô nhập liệu: dùng chung cho cả Thêm và Sửa -->
+  <div class="form-nhap">
+    <input type="text" id="mssv" placeholder="Mã SV (VD: SV001)">
+    <input type="text" id="hoten" placeholder="Họ tên">
+    <input type="text" id="lop" placeholder="Lớp (VD: CNTT01)">
+    <button id="btnThem" onclick="luuSinhVien()">Thêm</button>
+  </div>
+
+  <!-- BẢNG DANH SÁCH -->
+  <table>
+    <thead>
+      <tr>
+        <th>Mã SV</th>
+        <th>Họ tên</th>
+        <th>Lớp</th>
+        <th>Thao tác</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Các dòng sinh viên sẽ được JS điền vào đây -->
+    </tbody>
+  </table>
+</div>
+
+<script>
+  let danhSachSV = [
+    { mssv: "SV001", hoten: "Nguyễn Văn A", lop: "CNTT01" },
+    { mssv: "SV002", hoten: "Trần Thị B",  lop: "CNTT02" },
+    { mssv: "SV003", hoten: "Lê Văn C",    lop: "CNTT01" }
+  ];
+  let dangSuaId = null;
+
+  // Tham chiếu DOM - KHÔNG cần sửa phần này
+  const oMssv = document.getElementById("mssv");
+  const oHoten = document.getElementById("hoten");
+  const oLop = document.getElementById("lop");
+  const oBtnThem = document.getElementById("btnThem");
+  const oTableBody = document.getElementById("tableBody");
+  function timViTri(mssv) {
+    for (let i = 0; i < danhSachSV.length; i++) {
+      if (danhSachSV[i].mssv === mssv) {
+        return i;
+      }
+    }
+    return -1;
+
+  }
+  function hienThiDanhSach() {
+    let html = "";
+    for (let i = 0; i < danhSachSV.length; i++) {
+      const sv = danhSachSV[i];
+      html += "<tr>" +
+                "<td>" + sv.mssv + "</td>" +
+                "<td>" + sv.hoten + "</td>" +
+                "<td>" + sv.lop + "</td>" +
+                "<td>" +
+                  '<button class="btn-sua" onclick="suaSinhVien(\'' + sv.mssv + '\')">Sửa</button>' +
+                  '<button class="btn-xoa" onclick="xoaSinhVien(\'' + sv.mssv + '\')">Xóa</button>' +
+                "</td>" +
+              "</tr>";
+    }
+    oTableBody.innerHTML = html;
+
+  }
+  function luuSinhVien() {
+    const mssv = oMssv.value;
+    const hoten = oHoten.value;
+    const lop = oLop.value;
+    const svMoi = { mssv: mssv, hoten: hoten, lop: lop };
+
+    if (dangSuaId === null) {
+      // Đang THÊM MỚI
+      danhSachSV.push(svMoi);
+    } else {
+      // Đang CẬP NHẬT
+      const viTri = timViTri(dangSuaId);
+      danhSachSV[viTri] = svMoi;
+      dangSuaId = null;
+      oBtnThem.textContent = "Thêm";
+    }
+
+    oMssv.value = "";
+    oHoten.value = "";
+    oLop.value = "";
+    hienThiDanhSach();
+
+  }
+  function xoaSinhVien(mssv) {
+    const viTri = timViTri(mssv);
+    danhSachSV.splice(viTri, 1);
+    hienThiDanhSach();
+
+  }
+  function suaSinhVien(mssv) {
+    const viTri = timViTri(mssv);
+    const sv = danhSachSV[viTri];
+    oMssv.value = sv.mssv;
+    oHoten.value = sv.hoten;
+    oLop.value = sv.lop;
+    dangSuaId = mssv;
+    oBtnThem.textContent = "Cập nhật";
+
+  }
+
+  hienThiDanhSach();
+</script>
+
+</body>
+</html>
