@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 2 - sumOddNumbers</title>
+</head>
+<body>
+  <h2>Bài 2: sumOddNumbers</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function sumOddNumbers(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+          sum += arr[i];
+        }
+      }
+      return sum;
+    }
+
+    print(sumOddNumbers([1, 2, 3, 4, 5])); // 9
+  </script>
+</body>
+</html>

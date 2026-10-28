@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 1 - findMax</title>
+</head>
+<body>
+  <h2>Bài 1: findMax</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function findMax(arr) {
+      let max = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      return max;
+    }
+
+    print(findMax([1, 3, 5, 7, 9]));       
+    print(findMax([10, 20, 30, 40, 50]));  
+    print(findMax([-5, -2, -1, -3]));     
+  </script>
+</body>
+</html>

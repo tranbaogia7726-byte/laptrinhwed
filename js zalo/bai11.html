@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 11 - filterEvensAndSum</title>
+</head>
+<body>
+  <h2>Bài 11: filterEvensAndSum</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function filterEvensAndSum(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+          sum += arr[i];
+        }
+      }
+      return sum;
+    }
+
+    print(filterEvensAndSum([1, 2, 3, 4, 5, 6]));        // 12
+    print(filterEvensAndSum([12, 14, 15, 19, 20, 100])); // 146
+  </script>
+</body>
+</html>

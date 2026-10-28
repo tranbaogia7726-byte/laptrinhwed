@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 9 - alternateSum</title>
+</head>
+<body>
+  <h2>Bài 9: alternateSum</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function alternateSum(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (i % 2 === 0) {
+          sum += arr[i];  // vị trí chẵn: cộng
+        } else {
+          sum -= arr[i];  // vị trí lẻ: trừ
+        }
+      }
+      return sum;
+    }
+
+    print(alternateSum([10, 5, 6, 3]));   // 8
+    print(alternateSum([1, 2, 3, 4, 5])); // 3
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 14 - findMissingNumber</title>
+</head>
+<body>
+  <h2>Bài 14: findMissingNumber</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function findMissingNumber(arr, n) {
+      // Tổng các số từ 1 đến n
+      const expectedSum = (n * (n + 1)) / 2;
+
+      let actualSum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        actualSum += arr[i];
+      }
+
+      // Nếu không thiếu số nào thì hiệu = 0
+      return expectedSum - actualSum;
+    }
+
+    print(findMissingNumber([1, 2, 4, 5, 6], 6));       // 3
+    print(findMissingNumber([3, 7, 1, 2, 8, 4, 5], 8)); // 6
+    print(findMissingNumber([1, 2, 3, 4], 4));          // 0
+  </script>
+</body>
+</html>

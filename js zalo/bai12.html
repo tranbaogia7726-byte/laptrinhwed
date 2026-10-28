@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 12 - findLongestWord</title>
+</head>
+<body>
+  <h2>Bài 12: findLongestWord</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function findLongestWord(arr) {
+      let longest = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        // Dùng > (không dùng >=) để giữ chuỗi xuất hiện đầu tiên khi bằng độ dài
+        if (arr[i].length > longest.length) {
+          longest = arr[i];
+        }
+      }
+      return longest;
+    }
+
+    print(findLongestWord(["apple", "banana", "cherry", "date"]));     // banana
+    print(findLongestWord(["hello", "world", "this", "is", "great"])); // hello
+  </script>
+</body>
+</html>

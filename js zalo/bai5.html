@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 5 - sumArray</title>
+</head>
+<body>
+  <h2>Bài 5: sumArray</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function sumArray(arr) {
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return sum;
+    }
+
+    print(sumArray([1, 2, 3, 4, 5])); // 15
+  </script>
+</body>
+</html>

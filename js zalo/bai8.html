@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 8 - countGreaterThan</title>
+</head>
+<body>
+  <h2>Bài 8: countGreaterThan</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function countGreaterThan(arr, value) {
+      let count = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > value) {
+          count++;
+        }
+      }
+      return count;
+    }
+
+    print(countGreaterThan([1, 5, 7, 2, 3], 3));  // 2
+    print(countGreaterThan([2, 3, 1, -6, 8], 5)); // 1
+    print(countGreaterThan([], 5));               // 0
+  </script>
+</body>
+</html>

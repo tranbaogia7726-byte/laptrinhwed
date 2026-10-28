@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 13 - calculateGrade</title>
+</head>
+<body>
+  <h2>Bài 13: calculateGrade</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function calculateGrade(scores) {
+      let sum = 0;
+      for (let i = 0; i < scores.length; i++) {
+        sum += scores[i];
+      }
+      const avg = scores.length === 0 ? 0 : sum / scores.length;
+
+      if (avg >= 90) return "A";
+      if (avg >= 80) return "B";
+      if (avg >= 70) return "C";
+      if (avg >= 60) return "D";
+      return "F";
+    }
+
+    print(calculateGrade([95, 90, 85])); // A
+    print(calculateGrade([80, 85, 78])); // B
+    print(calculateGrade([70, 75, 72])); // C
+    print(calculateGrade([60, 65, 62])); // D
+    print(calculateGrade([40, 50, 55])); // F
+  </script>
+</body>
+</html>

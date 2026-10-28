@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 16 - findPairsWithSum</title>
+</head>
+<body>
+  <h2>Bài 16: findPairsWithSum</h2>
+  <script>
+    function print(x) {
+      document.write("<p>" + (typeof x === "object" ? JSON.stringify(x) : x) + "</p>");
+    }
+
+    function findPairsWithSum(arr, sum) {
+      const pairs = [];
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] + arr[j] === sum) {
+            pairs.push([arr[i], arr[j]]);
+          }
+        }
+      }
+      return pairs;
+    }
+
+    print(findPairsWithSum([1, 2, 3, 4, 5], 5)); // [[1,4],[2,3]]
+  </script>
+</body>
+</html>
